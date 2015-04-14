@@ -1,0 +1,53 @@
+{
+
+    "name": "_default",
+    "version": "0.1.0",
+    
+
+    "_defaultConfig": {
+        "dateformat": "m/d/Y h:i:s A",
+        "enable_debug": false,
+        "enable_login": false
+    },
+
+
+
+    // "AuthConfig": {
+    //     "ldap": {
+    //         "host": "ldap.turner.com",
+    //         "port": 389,
+    //         "searchBase": "DC=turner,DC=com",
+    //         "searchFilter": "(sAMAccountName={{username}})",
+    //         "userPrefix": "TURNER\\",
+    //         "adminGroupDn": "CN=*AdultSwim Dot Com Dev (TBS),OU=Groups,OU=Messaging,OU=North America,DC=turner,DC=com",
+    //         "dotcomGroupDn": "CN=*Adultswim Dot Com (TBS),OU=Groups,OU=Messaging,OU=North America,DC=turner,DC=com"
+    //     }
+    // },
+
+
+
+
+    "DatabaseConfig": {
+        "staging": {
+            "secure": false,
+            "host": "http://localhost",
+            "port": 15984
+        },
+        "production": {
+            "host": "adultswim.cloudant.com",
+            "port": 443,
+            "secure": true,
+            "auth": {
+                "username": "adultswim", 
+                "password": "tarsier360"
+            }
+        },
+        "development": {
+            "secure": false,
+            "host": "http://srd-10-60-176-107.nodes.56m.dmtio.net",
+            "port": 5984            
+        }
+    }
+
+
+}

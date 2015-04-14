@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+var dest = "./public";
+var debug = require('debug')('_default');
+var browserSync = require('browser-sync');
+var app = require('../app');
+var config = require('../gulp/config').browserSync;
+
+
+app.set('port', process.env.PORT || 3000);
+
+
+var server = app.listen(app.get('port'), function() {
+	browserSync(config);
+
+  	debug('Express server listening on port ' + server.address().port);
+});
