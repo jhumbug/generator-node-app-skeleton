@@ -14,8 +14,8 @@ modernizr = require('browsernizr');
 // or if you need access to the modernizr instance: 
 // var Modernizr = require('browsernizr');
 
-var _defaultView = require('../views/_default');
-var _defaultModel = require('../models/_default');
+var <%= camelCasedAppname %>View = require('../views/<%= sluggedAppname %>');
+var <%= camelCasedAppname %>Model = require('../models/<%= sluggedAppname %>');
 
 module.exports = Backbone.View.extend({
 	el: "#content",
@@ -31,6 +31,6 @@ module.exports = Backbone.View.extend({
     render: function() {
         this.$el.html(this.template());
 
-        this._defaultView = new _defaultView({ model: new _defaultModel() }).render();
+        this.<%= camelCasedAppname %>View = new <%= camelCasedAppname %>View({ model: new <%= camelCasedAppname %>Model() }).render();
     }
 });

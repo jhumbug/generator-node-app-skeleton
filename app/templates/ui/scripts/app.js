@@ -1,3 +1,3 @@
-var View = require('./views/main');
+var MainView = require('./views/main');
 
-view = new View();
+view = new MainView();

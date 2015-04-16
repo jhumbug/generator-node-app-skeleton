@@ -1,7 +1,18 @@
 # App Specific #
 ################
+node_modules
+dist
+test/temp
+.sass-cache
+app/bower_components
+.tmp
+.deploy
 .ftppass
+test/bower_components/
+test
+_build
 .build
+npm-debug.log
 
 # Node #
 ########

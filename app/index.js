@@ -148,11 +148,12 @@ module.exports = generators.Base.extend({
 	},
 
 	writing: {
-	  	copy: function () {
+	  	root: function () {
 			this.template('./bower.json', './bower.json');
 			this.template('./_.bowerrc', './.bowerrc');
 			this.template('./_.gitignore', './.gitignore');
 			this.template('./package.json', './package.json', this.allNames);
+			this.template('./app.js', './app.js', this.allNames);
 			this.template('./gulpfile.js', './gulpfile.js');
 			this.template('./README.md', './README.md');
 	  	},
@@ -171,7 +172,9 @@ module.exports = generators.Base.extend({
 	  		this.template('./gulp/.ftppass.sample', './gulp/.ftppass');
 
 	  		//jade templates
-	  		// this.template('./app/index.html', './app/index.html', this.allNames);
+	  		this.directory('./views', './views');
+	  		this.template('./views/api.jade', './views/api.jade', this.allNames);
+	  		this.template('./views/index.jade', './views/index.jade', this.allNames);
 
 	  		//styles
 		    this.template(this.stylesDir + '/_default.less', this.stylesDir + '/' + this.sluggedAppname + '.less');
@@ -182,10 +185,10 @@ module.exports = generators.Base.extend({
 		    //scripts
 		    this.template(this.scriptsDir + '/router.js', this.scriptsDir + '/router.js', this.allNames);
 		    this.copy(this.scriptsDir + '/app.js', this.scriptsDir + '/app.js');
-		    this.template(this.scriptsDir + '/views/content.js', this.scriptsDir + '/views/content.js', this.allNames);
+		    this.template(this.scriptsDir + '/views/main.js', this.scriptsDir + '/views/main.js', this.allNames);
 		    this.template(this.scriptsDir + '/views/_default.js', this.scriptsDir + '/views/' + this.sluggedAppname + '.js');
 		    this.template(this.scriptsDir + '/templates/_default.ejs', this.scriptsDir + '/templates/' + this.sluggedAppname + '.ejs', this.allNames);
-		    this.template(this.scriptsDir + '/templates/content.ejs', this.scriptsDir + '/templates/content.ejs', this.allNames );
+		    this.template(this.scriptsDir + '/templates/main.ejs', this.scriptsDir + '/templates/main.ejs', this.allNames );
 		    this.template(this.scriptsDir + '/models/_default.js', this.scriptsDir + '/models/' + this.sluggedAppname + '.js');
 		    this.template(this.scriptsDir + '/collections/_default.js', this.scriptsDir + '/collections/' + this.sluggedAppname + '.js');
 		    this.template(this.scriptsDir + '/lib/_default.js', this.scriptsDir + '/lib/' + this.sluggedAppname + '.js', this.allNames );
@@ -204,7 +207,7 @@ module.exports = generators.Base.extend({
   
 	end: {
 		bye: function () {
-			this.log('You\'ve got an app!  Run `gulp` to start it up.')
+			this.log('You\'ve got an app!  Run `gulp nodemon` to start it up.')
 		}
 	}
 

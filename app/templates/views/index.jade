@@ -6,6 +6,6 @@ block content
 	#content
 
 	script.
-		var _default = _default || {};
+		var <%= camelCasedAppname %>Config = !{JSON.stringify(initialData)};
 
 	script(src='/js/app.js')
