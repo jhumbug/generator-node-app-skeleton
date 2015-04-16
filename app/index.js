@@ -1,7 +1,5 @@
 var generators = require('yeoman-generator');
-var slugify = require("underscore.string/slugify");
-var humanize = require("underscore.string/humanize");
-var camelize = require("underscore.string/camelize");
+var _ = require("lodash");
 
 module.exports = generators.Base.extend({
 	// priorityName: {
@@ -118,9 +116,9 @@ module.exports = generators.Base.extend({
 
 		  	this.changeAppName = function (name) {
 		  		this.typedAppName = this.appname; // This has to work App
-				this.humanAppname = humanize(this.appname); // This has to work app
-				this.sluggedAppname = slugify(this.appname); // this-has-to-work-app
-				this.camelCasedAppname = camelize(this.appname.toLowerCase()); //thisHasToWorkApp
+				this.humanAppname = _.startCase(this.appname); // This has to work app
+				this.sluggedAppname = _.kebabCase(this.appname); // this-has-to-work-app
+				this.camelCasedAppname = _.camelCase(this.appname.toLowerCase()); //thisHasToWorkApp
 
 				this.allNames = {
 					typedAppName: this.typedAppName,
