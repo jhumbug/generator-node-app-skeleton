@@ -38,16 +38,20 @@ module.exports = generators.Base.extend({
 
   	initializing: {
   		init: function () {
-			this.extraNpmModules = {
-				dev: [],
-				production: []
+			// this.extraNpmModules = {
+			// 	dev: [],
+			// 	production: []
 
-			};
-			this.extraBowerComponents = {
-				dev: [],
-				production: []
+			// };
+			// this.extraBowerComponents = {
+			// 	dev: [],
+			// 	production: []
 
-			};
+			// };
+
+			this.appDir = './ui';
+			this.scriptsDir = this.appDir + '/scripts';
+			this.stylesDir = this.appDir + '/styles';
 
 			this.promptInstall = function (options) {
 			    var done = this.async();
@@ -166,14 +170,14 @@ module.exports = generators.Base.extend({
 		    // }
 	  		this.template('./gulp/.ftppass.sample', './gulp/.ftppass');
 
-	  		//markup
-	  		this.template('./app/index.html', './app/index.html', this.allNames);
+	  		//jade templates
+	  		// this.template('./app/index.html', './app/index.html', this.allNames);
 
 	  		//styles
-		    this.template('./app/styles/_default.less', './app/styles/' + this.sluggedAppname + '.less');
-		    this.template('./app/styles/app.less', './app/styles/app.less', this.allNames);
-		    this.copy('./app/styles/vars.less', './app/styles/vars.less');
-		    this.copy('./app/styles/mixins.less', './app/styles/mixins.less');
+		    this.template(this.stylesDir + '/_default.less', this.stylesDir + '/' + this.sluggedAppname + '.less');
+		    this.template(this.stylesDir + '/app.less', this.stylesDir + '/app.less', this.allNames);
+		    this.copy(this.stylesDir + '/vars.less', this.stylesDir + '/vars.less');
+		    this.copy(this.stylesDir + '/mixins.less', this.stylesDir + '/mixins.less');
 
 		    //scripts
 		    this.template('./app/scripts/router.js', './app/scripts/router.js', this.allNames);
