@@ -1,7 +1,7 @@
 {
-  "name": "generator-static-app-skeleton",
+  "name": "generator-node-app-skeleton",
   "version": "1.0.0",
-  "description": "Yeoman generator for a static app skeleton with gulp + browserify + less + backbone + bootstrap + deployment",
+  "description": "Yeoman generator for a node app skeleton with gulp + browserify + less + backbone + bootstrap",
   "main": "app.js",
   "files": [
     "app"
@@ -11,7 +11,8 @@
     "backbone",
     "browserify",
     "gulp",
-    "static-app",
+    "node",
+    "node app",
     "less",
     "scaffold",
     "bootstrap",
@@ -21,7 +22,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:jhumbug/generator-static-app-skeleton.git"
+    "url": "git@github.com:jhumbug/generator-node-app-skeleton.git"
   },
   "author": "Justin Gardner",
   "license": "ISC",

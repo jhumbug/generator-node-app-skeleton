@@ -1,5 +1,5 @@
 {
-  "name": "static-app-skeleton",
+  "name": "node-app-skeleton",
   "version": "0.0.1",
   "description": "Static App Skeleton with gulp + browserify + less + backbone + bootstrap",
   "author": "Justin Gardner",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:jhumbug/static-app-skeleton.git"
+    "url": "git@github.com:jhumbug/node-app-skeleton.git"
   },
   "license": "ISC",
   "browserify": {

@@ -1,7 +1,7 @@
 # Yeoman Generator for a Backbone + LESS + gulp + Browserify Static App Skeleton
 
 ## Overview
-This yeoman generator provides you with a static app skeleton for creating and deploying a one page static html/js/css app.  It uses a bunch web technologies to help workflow, organization and rapid development.
+This yeoman generator provides you with a node app skeleton for creating and deploying a one page dynamic html/js/css app with a node/express backend for apis or image processing or whatever.  It uses a bunch web technologies to help workflow, organization and rapid development.
 
 It uses:
 * [Backbone](http://backbonejs.org/) as it's MVC.
@@ -13,14 +13,14 @@ It uses:
 ## Prerequisites
 First, make sure you have [yeoman](http://yeoman.io/) installed globally. `npm install yo -g`
 
-Once you have that you can install this generator. `npm install -g generator-static-app-skeleton`
+Once you have that you can install this generator. `npm install -g generator-node-app-skeleton`
 
 One major thing this repo uses is gulp. You'll need to set that up globally. `npm install -g gulp`
 
 ## Generating Your App
 Create your project directory and cd into it: `mkdir test2 && cd test2`
 
-And run `yo static-app-skeleton`. 
+And run `yo node-app-skeleton`. 
 
 You'll get a few prompts about customizing your app.
 
