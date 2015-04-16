@@ -180,15 +180,15 @@ module.exports = generators.Base.extend({
 		    this.copy(this.stylesDir + '/mixins.less', this.stylesDir + '/mixins.less');
 
 		    //scripts
-		    this.template('./app/scripts/router.js', './app/scripts/router.js', this.allNames);
-		    this.copy('./app/scripts/app.js', './app/scripts/app.js');
-		    this.template('./app/scripts/views/content.js', './app/scripts/views/content.js', this.allNames);
-		    this.template('./app/scripts/views/_default.js', './app/scripts/views/' + this.sluggedAppname + '.js');
-		    this.template('./app/scripts/templates/_default.ejs', './app/scripts/templates/' + this.sluggedAppname + '.ejs', this.allNames);
-		    this.template('./app/scripts/templates/content.ejs', './app/scripts/templates/content.ejs', this.allNames );
-		    this.template('./app/scripts/models/_default.js', './app/scripts/models/' + this.sluggedAppname + '.js');
-		    this.template('./app/scripts/collections/_default.js', './app/scripts/collections/' + this.sluggedAppname + '.js');
-		    this.template('./app/scripts/lib/_default.js', './app/scripts/lib/' + this.sluggedAppname + '.js', this.allNames );
+		    this.template(this.scriptsDir + '/router.js', this.scriptsDir + '/router.js', this.allNames);
+		    this.copy(this.scriptsDir + '/app.js', this.scriptsDir + '/app.js');
+		    this.template(this.scriptsDir + '/views/content.js', this.scriptsDir + '/views/content.js', this.allNames);
+		    this.template(this.scriptsDir + '/views/_default.js', this.scriptsDir + '/views/' + this.sluggedAppname + '.js');
+		    this.template(this.scriptsDir + '/templates/_default.ejs', this.scriptsDir + '/templates/' + this.sluggedAppname + '.ejs', this.allNames);
+		    this.template(this.scriptsDir + '/templates/content.ejs', this.scriptsDir + '/templates/content.ejs', this.allNames );
+		    this.template(this.scriptsDir + '/models/_default.js', this.scriptsDir + '/models/' + this.sluggedAppname + '.js');
+		    this.template(this.scriptsDir + '/collections/_default.js', this.scriptsDir + '/collections/' + this.sluggedAppname + '.js');
+		    this.template(this.scriptsDir + '/lib/_default.js', this.scriptsDir + '/lib/' + this.sluggedAppname + '.js', this.allNames );
 	  	}
 	},
 
