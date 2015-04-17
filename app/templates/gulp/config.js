@@ -1,30 +1,33 @@
 var dest = "./public";
 var app = './ui';
 var node_modules = './node_modules';
+var bowerComponents = './bower_components';
 
-var ftpConfig = require('./.ftppass');
+var _ = require('lodash');
 
 // USE THIS IF YOU NEED TO PROXY A URL
 // var url = require('url');
 // var proxy = require('proxy-middleware');
-// var proxyOptions = url.parse('http://www.adultswim.com/_default');
-// proxyOptions.route = '/_default';
+// var proxyOptions = url.parse('http://www.adultswim.com/<%= sluggedAppname %>');
+// proxyOptions.route = '/<%= sluggedAppname %>';
 
-module.exports = {
+var config = {
     browserSync: {
         // server: {
-        //        // middleware: [proxy(proxyOptions)],
-        //        // Serve up our build folder
-        //        baseDir: dest
-        //    },
-        proxy: "localhost:3000",
+        //     middleware: [proxy(proxyOptions)]
+        // },
+        // proxy: {
+        //     target: "localhost:3000",
+        //     middleware: [proxy(proxyOptions)]
+        // },
+        proxy: 'localhost:3000',
         open: false,
         port: 3001,
         files: ['public/**/*']
     },
     nodemon: {
         options: {
-            "verbose": true,
+            verbose: true,
             script: './bin/dev',
             ignore: [".git", 'public', 'ui', 'node_modules', 'gulp']
         }
@@ -34,12 +37,13 @@ module.exports = {
     },
     less: {
         src: app + "/styles/app.less",
-        watchSrc: app + "/styles/*.less",
+        watchSrc: app + "/styles/**",
         dest: dest + "/css/",
         settings: {
             paths: [
                 app + '/styles/',
-                node_modules + '/'
+                node_modules + '/',
+                bowerComponents + '/'
             ]
         }
     },
@@ -64,34 +68,15 @@ module.exports = {
             // Additional file extentions to make optional
             extensions: ['.ejs'],
             // list of modules to make require-able externally
-            require: ['jquery', 'lodash', 'keymaster']
+            // require: ['jquery', 'lodash', 'keymaster']
         }]
     },
-    production: {
+    minify: {
         cssSrc: dest + '/css/*.css',
         jsSrc: dest + '/js/*.js',
         cssDest: dest + '/css/',
         jsDest: dest + '/js/'
-    },
-    deploy: {
-        src: dest + '/**',
-        dev: {
-            host: ftpConfig.adultswimdev.host,
-            user: ftpConfig.adultswimdev.username,
-            pass: ftpConfig.adultswimdev.password,
-            remotePath: '/dev/site'
-        },
-        staging: {
-            host: ftpConfig.adultswimstaging.host,
-            user: ftpConfig.adultswimstaging.username,
-            key: ftpConfig.adultswimstaging.keyLocation,
-            remotePath: '/dev/site'
-        },
-        production: {
-            host: ftpConfig.adultswimproduction.host,
-            user: ftpConfig.adultswimproduction.username,
-            key: ftpConfig.adultswimproduction.keyLocation,
-            remotePath: '/dev/site'
-        }
     }
 };
+
+module.exports = config;

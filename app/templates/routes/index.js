@@ -3,7 +3,12 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'This is <%= humanAppname %>' });
+	res.render('index', { 
+  		title: 'This is <%= humanAppname %>',
+  		initialData: {
+  			title: '<%= humanAppname %>'
+  		}
+  	});
 });
 
 module.exports = router;

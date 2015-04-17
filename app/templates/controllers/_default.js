@@ -1,24 +1,22 @@
 var _ = require('lodash');
 var moment = require('moment');
+var couchdb = require('../services/couchdb');
 
-var Config = require('../config/_default');
-var _defaultData = require('../data/_default');
+var db = couchdb.database('<%= sluggedAppname %>');
 
 var controller = {};
 
-/* Middlewares */
-
 controller.all = function (req, res, next) {
-    _defaultData.db.view('_default/all', { descending: true }, function (err, doc) {
+    db.view('<%= sluggedAppname %>/all', { descending: true }, function (err, doc) {
         if (err) return next(err);
        
-        var _defaults = [];
+        var allTheThings = [];
 
-        _.forEach(doc, function(_default) { 
-            _defaults.push(_default.value); 
+        _.forEach(doc, function(thing) { 
+            allTheThings.push(thing.value); 
         });
 
-        req._defaults = _defaults;
+        req.all = allTheThings;
         
         next();
     });

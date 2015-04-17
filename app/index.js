@@ -123,12 +123,14 @@ module.exports = generators.Base.extend({
 				this.humanAppname = _.startCase(this.appname); // This has to work app
 				this.sluggedAppname = _.kebabCase(this.appname); // this-has-to-work-app
 				this.camelCasedAppname = _.camelCase(this.appname.toLowerCase()); //thisHasToWorkApp
+				this.upperCasedAppname = _.kebabCase(this.appname).toUpperCase(); //THIS-HAS-TO-WORK-APP
 
 				this.allNames = {
 					typedAppName: this.typedAppName,
 					humanAppname: this.humanAppname,
 					sluggedAppname: this.sluggedAppname,
-					camelCasedAppname: this.camelCasedAppname
+					camelCasedAppname: this.camelCasedAppname,
+					upperCasedAppname: this.upperCasedAppname
 				};
 		  	};
 	  	}
@@ -156,6 +158,7 @@ module.exports = generators.Base.extend({
 			this.template('./app.js', './app.js', this.allNames);
 			this.template('./gulpfile.js', './gulpfile.js');
 			this.template('./README.md', './README.md');
+		    this.template('./_default.json', './' + this.sluggedAppname + '.json', this.allNames);
 	  	},
 
 	  	templates: function () {
@@ -182,6 +185,10 @@ module.exports = generators.Base.extend({
 		    this.copy(this.stylesDir + '/vars.less', this.stylesDir + '/vars.less');
 		    this.copy(this.stylesDir + '/mixins.less', this.stylesDir + '/mixins.less');
 
+		    //images & fonts
+	  		this.directory(this.appDir + '/images', this.appDir + '/images');
+	  		this.directory(this.appDir + '/fonts', this.appDir + '/fonts');
+
 		    //scripts
 		    this.template(this.scriptsDir + '/router.js', this.scriptsDir + '/router.js', this.allNames);
 		    this.copy(this.scriptsDir + '/app.js', this.scriptsDir + '/app.js');
@@ -193,13 +200,22 @@ module.exports = generators.Base.extend({
 		    this.template(this.scriptsDir + '/collections/_default.js', this.scriptsDir + '/collections/' + this.sluggedAppname + '.js');
 		    this.template(this.scriptsDir + '/lib/_default.js', this.scriptsDir + '/lib/' + this.sluggedAppname + '.js', this.allNames );
 
-		    //database
-		    this.template('./database/couchdb.js', './database/couchdb.js', this.allNames);
+		    //services
+		    this.template('./services/couchdb.js', './services/couchdb.js', this.allNames);
+
+		    //controllers
+		    this.template('./controllers/_default.js', './controllers/' + this.sluggedAppname + '.js', this.allNames);
 
 		    //routes
 		    this.template('./routes/_default.js', './routes/' + this.sluggedAppname + '.js', this.allNames);
 		    this.template('./routes/api.js', './routes/api.js', this.allNames);
 		    this.template('./routes/index.js', './routes/index.js', this.allNames);
+
+		    //config
+		    this.template('./config/_default.js', './config/' + this.sluggedAppname + '.js', this.allNames);
+
+		    //start files
+		    this.directory('./bin', './bin');
 	  	}
 	},
 

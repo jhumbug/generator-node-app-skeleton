@@ -2,7 +2,7 @@ var Backbone = require('backbone');
 
 module.exports = Backbone.Model.extend({
     defaults: {
-        <%= camelCasedAppname %>: 'WHOA'
+        title: 'SHUT THE FRONT DOOR'
     },
 
     initialize: function() {

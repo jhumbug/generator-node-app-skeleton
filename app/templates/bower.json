@@ -1,6 +1,6 @@
 {
-  "name": "node-app-skeleton",
-  "version": "0.0.0",
+  "name": "<%= sluggedAppname %>",
+  "version": "0.0.1",
   "dependencies": {},
   "devDependencies": {}
 }

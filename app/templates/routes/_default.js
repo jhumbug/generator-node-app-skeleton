@@ -6,7 +6,7 @@ var <%= camelCasedAppname %>Controller = require('../controllers/<%= sluggedAppn
 /* get them all */
 router.get('/', <%= camelCasedAppname %>Controller.all);
 router.get('/', function (req, res) {
-    res.send({ <%= camelCasedAppname %>: req.<%= camelCasedAppname %> });
+    res.send({ <%= camelCasedAppname %>: req.all });
 });
 
 module.exports = router;
