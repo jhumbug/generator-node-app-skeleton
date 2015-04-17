@@ -31,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // routes files
 app.use('/', require('./routes/index'));
+app.use('/api', require('./routes/api'));
 app.use('/<%= sluggedAppname %>', require('./routes/<%= sluggedAppname %>'));
 
 

@@ -1,4 +1,4 @@
-var couchdb = require('../services/couchdb');
+var couchdb = require('../database/couchdb');
 var _defaultData = {};
 
 _defaultData.db = couchdb.database('_default');

@@ -1,39 +1,33 @@
 {
 
-    "name": "_default",
-    "version": "0.1.0",
-    
+    "name": "<%= humanAppname %>",
+    "version": "0.0.1",
 
-    "_defaultConfig": {
+    "<%= camelCasedAppname %>Config": {
         "dateformat": "m/d/Y h:i:s A",
         "enable_debug": false,
         "enable_login": false
     },
 
-
-
-
     "DatabaseConfig": {
-        "staging": {
+        "development": {
             "secure": false,
             "host": "http://localhost",
             "port": 15984
         },
+        "staging": {
+            "secure": false,
+            "host": "http://host.com",
+            "port": 5984            
+        },
         "production": {
-            "host": "adultswim.cloudant.com",
+            "host": "host.com",
             "port": 443,
             "secure": true,
             "auth": {
-                "username": "adultswim", 
-                "password": "tarsier360"
+                "username": "", 
+                "password": ""
             }
-        },
-        "development": {
-            "secure": false,
-            "host": "http://srd-10-60-176-107.nodes.56m.dmtio.net",
-            "port": 5984            
         }
     }
-
-
 }

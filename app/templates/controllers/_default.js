@@ -8,7 +8,7 @@ var controller = {};
 
 /* Middlewares */
 
-controller._default = function (req, res, next) {
+controller.all = function (req, res, next) {
     _defaultData.db.view('_default/all', { descending: true }, function (err, doc) {
         if (err) return next(err);
        

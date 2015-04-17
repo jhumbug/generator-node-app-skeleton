@@ -4,7 +4,7 @@ var $ = require('jquery');
 var _ = require('lodash');
 var key = require('keymaster');
 
-$.<%= camelCasedAppname %> = require('../lib/<%= sluggedAppname %>');
+$.<%= camelCasedAppname %>Lib = require('../lib/<%= sluggedAppname %>');
 
 module.exports = Backbone.View.extend({
 	el: "#<%= sluggedAppname %>",

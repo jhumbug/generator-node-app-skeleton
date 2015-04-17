@@ -192,6 +192,14 @@ module.exports = generators.Base.extend({
 		    this.template(this.scriptsDir + '/models/_default.js', this.scriptsDir + '/models/' + this.sluggedAppname + '.js');
 		    this.template(this.scriptsDir + '/collections/_default.js', this.scriptsDir + '/collections/' + this.sluggedAppname + '.js');
 		    this.template(this.scriptsDir + '/lib/_default.js', this.scriptsDir + '/lib/' + this.sluggedAppname + '.js', this.allNames );
+
+		    //database
+		    this.template('./database/couchdb.js', './database/couchdb.js', this.allNames);
+
+		    //routes
+		    this.template('./routes/_default.js', './routes/' + this.sluggedAppname + '.js', this.allNames);
+		    this.template('./routes/api.js', './routes/api.js', this.allNames);
+		    this.template('./routes/index.js', './routes/index.js', this.allNames);
 	  	}
 	},
 
