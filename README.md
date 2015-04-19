@@ -1,4 +1,4 @@
-# Yeoman Generator for a Express + CouchDB + Backbone Node App Skeleton
+# Yeoman Generator for an Express + CouchDB + Backbone Node App Skeleton
 
 ## Overview
 This yeoman generator provides you with a node app skeleton for creating and deploying a one page dynamic html/js/css app with a node/express backend for apis or image processing or whatever.  It uses a bunch web technologies to help workflow, organization and rapid development, including gulp, nodemon and Browserify.

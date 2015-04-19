@@ -1,5 +1,7 @@
+'use strict';
+
 var generators = require('yeoman-generator');
-var _ = require("lodash");
+var _ = require('lodash');
 
 module.exports = generators.Base.extend({
 	// priorityName: {
@@ -29,7 +31,7 @@ module.exports = generators.Base.extend({
 		// Next, add your custom code
 		// this.option('coffee'); // This method adds support for a `--coffee` flag
 		// And you can then access it later on this way; e.g.
-		// this.scriptSuffix = (this.options.coffee ? ".coffee": ".js");
+		// this.scriptSuffix = (this.options.coffee ? '.coffee': '.js');
 
 		// This makes `appname` a required argument.
 		// this.argument('appname', { type: String, required: true });
@@ -53,7 +55,7 @@ module.exports = generators.Base.extend({
 			this.scriptsDir = this.appDir + '/scripts';
 			this.stylesDir = this.appDir + '/styles';
 
-			this.promptInstall = function (options) {
+			this.promptInstall = function () {
 			    var done = this.async();
 
 			    var prompts = [
@@ -118,7 +120,7 @@ module.exports = generators.Base.extend({
 			    }.bind(this));
 			};
 
-		  	this.changeAppName = function (name) {
+		  	this.changeAppName = function () {
 		  		this.typedAppName = this.appname; // This has to work App
 				this.humanAppname = _.startCase(this.appname); // This has to work app
 				this.sluggedAppname = _.kebabCase(this.appname); // this-has-to-work-app
@@ -183,6 +185,7 @@ module.exports = generators.Base.extend({
 		    this.template(this.stylesDir + '/_default.less', this.stylesDir + '/' + this.sluggedAppname + '.less');
 		    this.template(this.stylesDir + '/app.less', this.stylesDir + '/app.less', this.allNames);
 		    this.copy(this.stylesDir + '/vars.less', this.stylesDir + '/vars.less');
+		    this.copy(this.stylesDir + '/common.less', this.stylesDir + '/common.less');
 		    this.copy(this.stylesDir + '/mixins.less', this.stylesDir + '/mixins.less');
 
 		    //images & fonts
@@ -231,7 +234,7 @@ module.exports = generators.Base.extend({
   
 	end: {
 		bye: function () {
-			this.log('You\'ve got an app!  Run `gulp` to start it up.')
+			this.log('You\'ve got an app!  Run `gulp` to start it up.');
 		}
 	}
 

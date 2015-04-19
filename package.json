@@ -1,7 +1,7 @@
 {
   "name": "generator-node-app-skeleton",
   "version": "0.1.0",
-  "description": "Yeoman generator for a node app skeleton with gulp + browserify + less + backbone + bootstrap",
+  "description": "Yeoman Generator for an Express + CouchDB + Backbone Node App Skeleton",
   "main": "app.js",
   "files": [
     "app"
@@ -9,6 +9,8 @@
   "keywords": [
     "yeoman-generator",
     "backbone",
+    "express",
+    "couchdb",
     "browserify",
     "gulp",
     "node",
@@ -16,7 +18,6 @@
     "less",
     "scaffold",
     "bootstrap",
-    "ftp-deployment",
     "boilerplate",
     "template"
   ],
