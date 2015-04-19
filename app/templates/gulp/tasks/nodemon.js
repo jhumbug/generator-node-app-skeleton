@@ -5,9 +5,16 @@ var browserifyTask = require('./browserify');
 var lessTask = require('./less');
 var imagesTask = require('./images');
 var open = require("open");
+var argv = require('yargs').argv;
+
+var tasks = [];
+
+if (argv.clean === true || argv.c) {
+    tasks.unshift('clean');
+}
 
 
-gulp.task('nodemon', function(cb) {
+gulp.task('nodemon', tasks, function(cb) {
     // We use this `called` variable to make sure the callback is only executed once
     var called = false;
     return nodemon(config.nodemon.options)

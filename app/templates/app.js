@@ -49,11 +49,17 @@ app.use(function(req, res, next) {
 // will print stacktrace
 if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
-        res.status(err.status || 500);
-        res.render('error', {
+        var pageData = {
             message: err.message,
             error: err
-        });
+        }
+
+        if (err.code === 'ECONNREFUSED') {
+            pageData.message = 'There\'s a connection refused error!  Your app requires a working database connection.'
+        }
+        
+        res.status(err.status || 500);
+        res.render('error', pageData);
     });
 }
 

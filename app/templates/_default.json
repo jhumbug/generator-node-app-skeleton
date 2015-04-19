@@ -13,7 +13,7 @@
         "development": {
             "secure": false,
             "host": "http://localhost",
-            "port": 15984
+            "port": 5984
         },
         "staging": {
             "secure": false,
