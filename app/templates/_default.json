@@ -5,7 +5,8 @@
 
     "<%= camelCasedAppname %>Config": {
         "dateformat": "m/d/Y h:i:s A",
-        "enable_debug": false,
+        "enable_debug": true,
+        "enable_database": false,
         "enable_login": false
     },
 
