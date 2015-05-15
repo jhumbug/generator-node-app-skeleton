@@ -1,10 +1,12 @@
+'use strict';
+
 var gulp = require('gulp');
 var nodemon = require('gulp-nodemon');
 var config = require('../config');
 var browserifyTask = require('./browserify');
 var lessTask = require('./less');
 var imagesTask = require('./images');
-var open = require("open");
+var openURL = require('open');
 var argv = require('yargs').argv;
 
 var tasks = [];
@@ -34,7 +36,7 @@ gulp.task('nodemon', tasks, function(cb) {
 
                 cb();
             	
-				open(config.open.url);
+				openURL(config.open.url);
             }
             called = true;
         })

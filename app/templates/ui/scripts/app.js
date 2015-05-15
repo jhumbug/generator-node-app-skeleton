@@ -1,3 +1,3 @@
 var MainView = require('./views/main');
 
-view = new MainView();
+new MainView();

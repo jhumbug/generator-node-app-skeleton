@@ -1,4 +1,6 @@
-var app = require('../app');
+'use strict';
+
+// var app = require('../app');
 var Config = require('../config/<%= sluggedAppname %>');
 var cradle = require('cradle');
 

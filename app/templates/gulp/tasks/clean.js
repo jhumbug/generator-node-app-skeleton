@@ -1,8 +1,10 @@
+'use strict';
+
 var gulp = require('gulp');
 var del = require('del');
-var argv = require('yargs').argv;
 var config = require('../config');
-var gutil = require('gulp-util'); 
+// var argv = require('yargs').argv;
+// var gutil = require('gulp-util'); 
 
 gulp.task('clean', function (cb) {
 	del([
