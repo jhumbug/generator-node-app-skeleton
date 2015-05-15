@@ -64,23 +64,17 @@ module.exports = generators.Base.extend({
 						name    : 'name',
 						message : 'What\'s your project\'s name?',
 						default : 'Super Terrific Happy App' // Default to current folder name
-					} //,
-					// {
-					// 	type    : 'input',
-					// 	name    : 'ftp',
-					// 	message : 'Want FTP deployment? ',
-					// 	default : false // Default to current folder name
-					// } //,
+					} 
 				    // {
 				    //     type    : 'input',
 				    //     name    : 'devNpm',
-				    //     message : 'Enter a comma separated list of extra dev npm modules to install',
+				    //     message : 'Do you want to setup a database connection?',
 				    //     default : '' // Default to none
 				    // },
 				    // {
 				    //     type    : 'input',
 				    //     name    : 'prodNpm',
-				    //     message : 'Enter a comma separated list of extra production npm modules to install',
+				    //     message : 'Enter a database',
 				    //     default : '' // Default to none
 				    // },
 				    // {
