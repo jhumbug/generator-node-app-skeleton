@@ -1,10 +1,12 @@
 'use strict';
 
 var _ = require('lodash');
-var couchdb = require('../services/couchdb');
 var config = require('../config/<%= sluggedAppname %>');
 
-var db = couchdb.database('<%= sluggedAppname %>');
+if (config.get('lamboConfig:enable_database')) {
+    var couchdb = require('../services/couchdb');
+    var db = couchdb.database('lambo');
+}
 
 var controller = {};
 
