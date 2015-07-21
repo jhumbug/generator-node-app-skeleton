@@ -1,6 +1,6 @@
 {
   "name": "generator-node-app-skeleton",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Yeoman Generator for an Express + CouchDB + Backbone Node App Skeleton",
   "main": "app.js",
   "files": [
