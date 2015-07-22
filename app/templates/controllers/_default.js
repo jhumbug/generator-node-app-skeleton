@@ -10,7 +10,7 @@ if (config.get('lamboConfig:enable_database')) {
 
 var controller = {};
 
-controller.getAll = function (req, res, next) {
+controller.all = function (req, res, next) {
 	if (config.get('<%= camelCasedAppname %>Config:enable_database')) {
         db.view('<%= sluggedAppname %>/all', { descending: true }, function (err, doc) {
             if (err) return next(err);
@@ -31,7 +31,7 @@ controller.getAll = function (req, res, next) {
     }
 };
 
-controller.getOne = function (req, res, next) {
+controller.one = function (req, res, next) {
 	if (config.get('<%= camelCasedAppname %>Config:enable_database')) {
         var id = req.params.id;
         db.get(id, function (err, doc) {
