@@ -1,28 +1,23 @@
 'use strict';
 
 var _ = require('lodash');
-var config = require('../config/<%= sluggedAppname %>');
-
-if (config.get('lamboConfig:enable_database')) {
-    var couchdb = require('../services/couchdb');
-    var db = couchdb.database('lambo');
-}
+var db = require('./database');
 
 var controller = {};
 
 controller.all = function (req, res, next) {
-	if (config.get('<%= camelCasedAppname %>Config:enable_database')) {
+	if (db) {
         db.view('<%= sluggedAppname %>/all', { descending: true }, function (err, doc) {
             if (err) return next(err);
-           
+
             var allTheThings = [];
 
-            _.forEach(doc, function(thing) { 
-                allTheThings.push(thing.value); 
+            _.forEach(doc, function(thing) {
+                allTheThings.push(thing.value);
             });
 
             req.all = allTheThings;
-            
+
             next();
         });
     }  else {
@@ -32,7 +27,7 @@ controller.all = function (req, res, next) {
 };
 
 controller.one = function (req, res, next) {
-	if (config.get('<%= camelCasedAppname %>Config:enable_database')) {
+    if (db) {
         var id = req.params.id;
         db.get(id, function (err, doc) {
             if (err) return next(err);

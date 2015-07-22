@@ -11,23 +11,34 @@
     },
 
     "DatabaseConfig": {
+        "databaseType": "couchdb",
+
         "development": {
-            "secure": false,
-            "host": "http://localhost",
-            "port": 5984
+            "mongodb": {
+                "uri": "mongodb://heroku_57bc0b58:v1nou5dd6r543lf2v5pq0ri4i9@ds033709.mongolab.com:33709/heroku_57bc0b58"
+            },
+            "couchdb": {
+                "secure": false,
+                "host": "http://localhost",
+                "port": 5984
+            }
         },
         "staging": {
-            "secure": false,
-            "host": "http://host.com",
-            "port": 5984            
+            "couchdb": {
+                "secure": false,
+                "host": "http://host.com",
+                "port": 5984
+            }
         },
         "production": {
-            "host": "host.com",
-            "port": 443,
-            "secure": true,
-            "auth": {
-                "username": "", 
-                "password": ""
+            "couchdb": {
+                "host": "host.com",
+                "port": 443,
+                "secure": true,
+                "auth": {
+                    "username": "",
+                    "password": ""
+                }
             }
         }
     }

@@ -64,7 +64,7 @@ module.exports = generators.Base.extend({
 						name    : 'name',
 						message : 'What\'s your project\'s name?',
 						default : 'Super Terrific Happy App' // Default to current folder name
-					} 
+					}
 				    // {
 				    //     type    : 'input',
 				    //     name    : 'devNpm',
@@ -200,8 +200,10 @@ module.exports = generators.Base.extend({
 
 		    //services
 		    this.template('./services/couchdb.js', './services/couchdb.js', this.allNames);
+		    this.template('./services/mongodb.js', './services/mongodb.js', this.allNames);
 
 		    //controllers
+		    this.template('./controllers/database.js', './controllers/database.js', this.allNames);
 		    this.template('./controllers/_default.js', './controllers/' + this.sluggedAppname + '.js', this.allNames);
 
 		    //routes
@@ -226,7 +228,7 @@ module.exports = generators.Base.extend({
 	   		// this.npmInstall(['lodash'], { 'saveDev': true });
 		}
 	},
-  
+
 	end: {
 		bye: function () {
 			this.log('You\'ve got an app!  Run `gulp` to start it up.');
